@@ -33,10 +33,11 @@ module.exports = {
       options: contentfulConfig,
     },
     {
-      resolve: `gatsby-plugin-typography`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        pathToConfigModule: `src/utils/typography`,
-      },
+        path: `${__dirname}/src/images`,
+        name: 'images'
+      }
     }
   ],
 }

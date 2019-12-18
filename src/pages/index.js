@@ -5,11 +5,14 @@ import Helmet from 'react-helmet'
 import Hero from '../components/hero'
 import Layout from '../components/layout'
 import ArticlePreview from '../components/article-preview'
+import ServicePreview from '../components/service-preview'
+import {Container, Row, Col } from 'react-bootstrap'
 
 class RootIndex extends React.Component {
   render() {
     const siteTitle = get(this, 'props.data.site.siteMetadata.title')
     const posts = get(this, 'props.data.allContentfulBlogPost.edges')
+    const services = get(this, 'props.data.allContentfulService.edges')
     const [author] = get(this, 'props.data.allContentfulPerson.edges')
 
     return (
@@ -17,9 +20,10 @@ class RootIndex extends React.Component {
         <div style={{ background: '#fff' }}>
           <Helmet title={siteTitle} />
           <Hero data={author.node} />
+
           <div className="wrapper">
             <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list">
+            <ul className="article-list list-unstyled">
               {posts.map(({ node }) => {
                 return (
                   <li key={node.slug}>
@@ -29,6 +33,21 @@ class RootIndex extends React.Component {
               })}
             </ul>
           </div>
+
+          <div className="wrapper">
+            <h2 className="section-headline">Our Services</h2>
+              <ul className="service-list">
+                {services.map(({ node }) => {
+                  return (
+                    <li key={node.slug}>
+                      <ServicePreview service={node} />
+                    </li>
+                  )
+                })}
+              </ul>
+          </div>
+
+
         </div>
       </Layout>
     )
@@ -42,6 +61,20 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allContentfulService {
+      edges {
+        node {
+          service
+          slug
+          shortDescription
+          thumbnail {
+            fluid(resizingBehavior: SCALE) {
+             ...GatsbyContentfulFluid_tracedSVG
+            }
+          }
+        }
       }
     }
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
