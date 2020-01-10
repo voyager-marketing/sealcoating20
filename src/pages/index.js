@@ -22,20 +22,7 @@ class RootIndex extends React.Component {
           <Hero data={author.node} />
 
           <div className="wrapper">
-            <h2 className="section-headline">Recent articles</h2>
-            <ul className="article-list list-unstyled">
-              {posts.map(({ node }) => {
-                return (
-                  <li key={node.slug}>
-                    <ArticlePreview article={node} />
-                  </li>
-                )
-              })}
-            </ul>
-          </div>
-
-          <div className="wrapper">
-            <h2 className="section-headline">Our Services</h2>
+            <h2 className="section-headline text-center">Our Services</h2>
               <ul className="service-list">
                 {services.map(({ node }) => {
                   return (
@@ -47,6 +34,18 @@ class RootIndex extends React.Component {
               </ul>
           </div>
 
+          <div className="wrapper">
+            <h2 className="section-headline">Recent articles</h2>
+            <ul className="article-list list-unstyled">
+              {posts.map(({ node }) => {
+                return (
+                  <li key={node.slug}>
+                    <ArticlePreview article={node} />
+                  </li>
+                )
+              })}
+            </ul>
+          </div>
 
         </div>
       </Layout>

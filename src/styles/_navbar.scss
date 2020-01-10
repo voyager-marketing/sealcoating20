@@ -1,0 +1,17 @@
+#responsive-navbar-nav {
+  justify-content: space-around;
+}
+
+
+.navigation {
+  justify-content: center;
+  width: 50%;
+  flex-grow: 1;
+  font-size: 1.25em;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.brand {
+  flex-shrink: 0;
+}

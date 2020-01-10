@@ -2,7 +2,14 @@
   position: relative;
   background: #000;
   color: #fff;
-  text-align: center;
+}
+
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  height: 100%;
 }
 
 .heroImage {

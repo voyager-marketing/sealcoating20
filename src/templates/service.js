@@ -5,8 +5,6 @@ import get from 'lodash/get'
 import Img from 'gatsby-image'
 import Layout from '../components/layout'
 
-import heroStyles from '../components/hero.module.css'
-
 class ServiceTemplate extends React.Component {
   render() {
     const service = get(this.props, 'data.contentfulService')
@@ -16,7 +14,7 @@ class ServiceTemplate extends React.Component {
       <Layout location={this.props.location} >
         <div style={{ background: '#fff' }}>
           <Helmet title={`${service.service} - ${siteTitle}`} />
-          <div className={heroStyles.hero}>
+          <div className="hero">
             <Img alt={service.title} fluid={service.thumbnail.fluid} />
           </div>
           <div className="wrapper">
