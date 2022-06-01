@@ -23,7 +23,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.19",
-    "sharp": "^0.22.0",
+    "sharp": "^0.30.5",
     "typography": "^0.16.19",
     "typography-theme-fairy-gates": "^0.16.19"
   },
